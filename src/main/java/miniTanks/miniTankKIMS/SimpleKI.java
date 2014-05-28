@@ -9,7 +9,7 @@ public class SimpleKI {
     private static final double NO_TARGET_TURN = 0.2;
     private static final double MAX_MISSILE_RANGE = 90;
     
-    private Converter converter = new Converter();
+    private static final Converter CONVERTER = new Converter();
     private ServerMessage message;
     
     public SimpleKI() {
@@ -17,11 +17,11 @@ public class SimpleKI {
 
     public String response(String line) {
         
-        message = converter.toObject(line);
+        message = CONVERTER.toObject(line);
         
         double direction = turnToTarget();
         
-        return converter.toString(new GameMessage(direction));
+        return CONVERTER.toString(new GameMessage(1d, direction, Math.abs(direction ) < 0.15));
     }
     
     private double turnToTarget() {
