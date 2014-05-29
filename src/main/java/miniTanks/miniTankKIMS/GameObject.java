@@ -6,15 +6,32 @@ public class GameObject {
     private double x;
     private double y;
     private double direction;
-    private double speed;
-    private double cooldown;
+    protected double speed;
+    protected double cooldown;
     private String missile;
     private String owner;
-    private int score;
-    private int health;
+    protected int score;
+    protected int health;
 
+    public GameObject(String tank, String missile, double x, double y,
+            double direction) {
+        this.missile = missile;
+        this.tank = tank;
+        this.x = x;
+        this.y = y;
+        this.direction = direction;
+    }
+
+    public boolean isTank() {
+        return tank != null;
+    }
+    
+    public boolean isMissile() {
+        return missile != null;
+    }
+    
     public Object getID() {
-        return tank;
+        return tank == null ? missile : tank;
     }
 
     public double getX() {
@@ -36,16 +53,15 @@ public class GameObject {
     public double getDirection() {
         return direction;
     }
-
-    public int getScore() {
-        return score;
-    }
     
-    public int getHealth() {
-        return health;
+    public Tank toTank() {
+        
+        if (this.isMissile())
+            return null;
+        
+        return new Tank(tank, x, y, direction, speed, cooldown, score, health);
+        
     }
-
-    public double getSpeed() {
-        return speed;
-    }
+        
+    
 }
