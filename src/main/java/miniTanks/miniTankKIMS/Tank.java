@@ -27,4 +27,8 @@ public class Tank extends GameObject {
     public double getCooldown() {
         return cooldown;
     }
+
+    public void setHealth(int health) {
+        this.health = health;
+    }
 }

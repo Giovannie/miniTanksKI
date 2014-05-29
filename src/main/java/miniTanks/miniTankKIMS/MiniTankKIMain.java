@@ -36,7 +36,7 @@ public class MiniTankKIMain {
             
             SimpleKI kI = new SimpleKI();
             
-            writer.write("{\"name\":\"giovannie" + kI.ID() + "\", \"pw\":\"blabla" + kI.ID() + "\"}");
+            writer.write("{\"name\":\"giovannieADVANCED\", \"pw\":\"blabla+" + kI.ID() + "\"}");
             String line = "";
             while((line = reader.read()) != null) {
 //                    System.out.println("Server:" + line);

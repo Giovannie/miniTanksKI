@@ -9,7 +9,7 @@ public class GameObject {
     protected double speed;
     protected double cooldown;
     private String missile;
-    private String owner;
+    protected String owner;
     protected int score;
     protected int health;
 
@@ -63,5 +63,11 @@ public class GameObject {
         
     }
         
-    
+    public Missile toMissile() {
+        
+        if (this.isTank())
+            return null;
+        
+        return new Missile(missile, x, y, direction, owner);
+    }
 }
